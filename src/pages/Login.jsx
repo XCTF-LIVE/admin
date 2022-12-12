@@ -22,7 +22,7 @@ export default function Login() {
     try {
       axios
         .post(
-          "https://xctf-live-backend.herokuapp.com/auth/login",
+          "http://api.xctf.live/auth/login",
           {
             ...values,
           },

@@ -17,12 +17,9 @@ export default function Dashboard() {
         navigate("/login");
       } else {
         axios
-          .post(
-            "https://xctf-live-backend.herokuapp.com/auth",
-            {},
-            { withCredentials: true }
-          )
+          .post("http://api.xctf.live/auth", {}, { withCredentials: true })
           .then((res) => {
+            console.log(res.data.status);
             const data = res.data;
             if (!data.status) {
               removeCookie("jwt");
@@ -31,6 +28,20 @@ export default function Dashboard() {
               toast(`Logged in as ${data.user}`, { theme: "dark" });
             }
           })
+          .then(() =>
+            axios
+              .get("http://api.xctf.live/race/allraces")
+              .then((res1) => {
+                setRaceData(res1.data);
+              })
+              .then(
+                axios
+                  .get("http://api.xctf.live/race/submissions")
+                  .then((res2) => {
+                    setSubmissionData(res2.data);
+                  })
+              )
+          )
           .catch((err) => {
             console.log(err);
             removeCookie("jwt");
@@ -40,21 +51,6 @@ export default function Dashboard() {
     };
     verifyUser();
   }, [cookies, navigate, removeCookie]);
-
-  useEffect(() => {
-    axios
-      .get("https://xctf-live-backend.herokuapp.com/race/allraces")
-      .then((res1) => {
-        setRaceData(res1.data);
-      })
-      .then(
-        axios
-          .get("https://xctf-live-backend.herokuapp.com/race/submissions")
-          .then((res2) => {
-            setSubmissionData(res2.data);
-          })
-      );
-  }, []);
 
   const removeSubmission = (item) => {
     axios
@@ -69,21 +65,16 @@ export default function Dashboard() {
   };
   const removeRace = (item) => {
     axios
-      .delete(
-        "https://xctf-live-backend.herokuapp.com/race/deleterace/" + item._id
-      )
+      .delete("http://api.xctf.live/race/deleterace/" + item._id)
       .then(() => {
         window.location.reload();
       });
   };
   const toggleHighlightRace = (item) => {
     axios
-      .post(
-        "https://xctf-live-backend.herokuapp.com/race/toggleracehighlight",
-        {
-          document: item,
-        }
-      )
+      .post("http://api.xctf.live/race/toggleracehighlight", {
+        document: item,
+      })
       .then(() => window.location.reload());
   };
 
