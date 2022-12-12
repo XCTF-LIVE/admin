@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/xctf-live-admin/static/css/main.b1723b6a.css",
-    "main.js": "/xctf-live-admin/static/js/main.c786bcfa.js",
+    "main.js": "/xctf-live-admin/static/js/main.a33ba90f.js",
     "index.html": "/xctf-live-admin/index.html",
     "main.b1723b6a.css.map": "/xctf-live-admin/static/css/main.b1723b6a.css.map",
-    "main.c786bcfa.js.map": "/xctf-live-admin/static/js/main.c786bcfa.js.map"
+    "main.a33ba90f.js.map": "/xctf-live-admin/static/js/main.a33ba90f.js.map"
   },
   "entrypoints": [
     "static/css/main.b1723b6a.css",
-    "static/js/main.c786bcfa.js"
+    "static/js/main.a33ba90f.js"
   ]
 }
