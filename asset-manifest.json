@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/xctf-live-admin/static/css/main.b1723b6a.css",
+    "main.js": "/xctf-live-admin/static/js/main.10b6796a.js",
+    "index.html": "/xctf-live-admin/index.html",
+    "main.b1723b6a.css.map": "/xctf-live-admin/static/css/main.b1723b6a.css.map",
+    "main.10b6796a.js.map": "/xctf-live-admin/static/js/main.10b6796a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b1723b6a.css",
+    "static/js/main.10b6796a.js"
+  ]
+}
