@@ -7,10 +7,9 @@ import "react-toastify/dist/ReactToastify.css";
 export default function App() {
   return (
     <BrowserRouter>
-      <Login />
       <Routes>
-        <Route exact path="/xctf-live-admin/login" element={<Login />} />
-        <Route exact path="/xctf-live-admin/" element={<Dashboard />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );
