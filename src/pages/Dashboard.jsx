@@ -19,7 +19,6 @@ export default function Dashboard() {
         axios
           .post("http://api.xctf.live/auth", {}, { withCredentials: true })
           .then((res) => {
-            console.log(res.data.status);
             const data = res.data;
             if (!data.status) {
               removeCookie("jwt");
