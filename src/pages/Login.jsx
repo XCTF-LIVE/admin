@@ -22,7 +22,7 @@ export default function Login() {
     try {
       axios
         .post(
-          process.env.REACT_APP_SERVER_API_URL_AUTH + "/login",
+          "https://xctf-live-backend.herokuapp.com/auth/login",
           {
             ...values,
           },

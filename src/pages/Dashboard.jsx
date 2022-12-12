@@ -43,13 +43,13 @@ export default function Dashboard() {
 
   useEffect(() => {
     axios
-      .get(process.env.REACT_APP_SERVER_API_URL_RACE + "/allraces")
+      .get("https://xctf-live-backend.herokuapp.com/race/allraces")
       .then((res1) => {
         setRaceData(res1.data);
       })
       .then(
         axios
-          .get(process.env.REACT_APP_SERVER_API_URL_RACE + "/submissions")
+          .get("https://xctf-live-backend.herokuapp.com/race/submissions")
           .then((res2) => {
             setSubmissionData(res2.data);
           })
@@ -70,7 +70,7 @@ export default function Dashboard() {
   const removeRace = (item) => {
     axios
       .delete(
-        process.env.REACT_APP_SERVER_API_URL_RACE + "/deleterace/" + item._id
+        "https://xctf-live-backend.herokuapp.com/race/deleterace/" + item._id
       )
       .then(() => {
         window.location.reload();
@@ -79,7 +79,7 @@ export default function Dashboard() {
   const toggleHighlightRace = (item) => {
     axios
       .post(
-        process.env.REACT_APP_SERVER_API_URL_RACE + "/toggleracehighlight",
+        "https://xctf-live-backend.herokuapp.com/race/toggleracehighlight",
         {
           document: item,
         }
