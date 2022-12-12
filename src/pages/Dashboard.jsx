@@ -30,6 +30,11 @@ export default function Dashboard() {
             } else {
               toast(`Logged in as ${data.user}`, { theme: "dark" });
             }
+          })
+          .catch((err) => {
+            console.log(err);
+            removeCookie("jwt");
+            navigate("/login");
           });
       }
     };

@@ -8,8 +8,8 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/" element={<Dashboard />} />
+        <Route exact path="/xctf-live-admin/login" element={<Login />} />
+        <Route exact path="/xctf-live-admin/" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );
