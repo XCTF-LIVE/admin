@@ -14,7 +14,7 @@ export default function Dashboard() {
   useEffect(() => {
     const verifyUser = async () => {
       if (!cookies.jwt) {
-        navigate("/login");
+        navigate("/xctf-live-admin/login");
       } else {
         axios
           .post(
@@ -26,7 +26,7 @@ export default function Dashboard() {
             const data = res.data;
             if (!data.status) {
               removeCookie("jwt");
-              navigate("/login");
+              navigate("/xctf-live-admin/login");
             } else {
               toast(`Logged in as ${data.user}`, { theme: "dark" });
             }
@@ -34,7 +34,7 @@ export default function Dashboard() {
           .catch((err) => {
             console.log(err);
             removeCookie("jwt");
-            navigate("/login");
+            navigate("/xctf-live-admin/login");
           });
       }
     };
@@ -89,7 +89,7 @@ export default function Dashboard() {
 
   const logOut = () => {
     removeCookie("jwt");
-    navigate("/login");
+    navigate("/xctf-live-admin/login");
   };
   return (
     <>
