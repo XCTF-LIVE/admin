@@ -32,7 +32,6 @@ export default function Login() {
         )
         .then((res) => {
           const data = res.data;
-          console.log(data);
           if (data) {
             if (data.errors) {
               generateError(data.errors);
