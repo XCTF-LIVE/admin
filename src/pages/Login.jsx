@@ -33,7 +33,7 @@ export default function Login() {
         )
         .then((res) => {
           console.log("test");
-          const data = res.data;
+          const data = res.data.data;
           console.log(data);
           if (data) {
             if (data.errors) {
