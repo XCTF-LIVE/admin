@@ -18,7 +18,6 @@ export default function Login() {
   };
 
   const handleSubmit = (e) => {
-    console.log("test123");
     e.preventDefault();
     try {
       axios
@@ -32,8 +31,6 @@ export default function Login() {
           }
         )
         .then((res) => {
-          console.log("test");
-          console.log("cookies: " + res.cookies);
           const data = res.data;
           console.log(data);
           if (data) {
@@ -42,11 +39,8 @@ export default function Login() {
             } else {
               navigate("/");
             }
-          } else {
-            console.log("test3");
           }
-        })
-        .catch(() => console.log("catch 123"));
+        });
     } catch (err) {
       console.log(err);
     }
