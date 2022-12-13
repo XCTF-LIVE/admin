@@ -33,6 +33,7 @@ export default function Login() {
         )
         .then((res) => {
           console.log("test");
+          console.log("cookies: " + res.cookies);
           const data = res.data;
           console.log(data);
           if (data) {
