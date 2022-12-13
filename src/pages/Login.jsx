@@ -22,7 +22,7 @@ export default function Login() {
     try {
       axios
         .post(
-          "http://api.xctf.live/auth/login",
+          "https://api.xctf.live/auth/login",
           {
             ...values,
           },
@@ -31,12 +31,12 @@ export default function Login() {
           }
         )
         .then((res) => {
-          const data = res.data;
+          console.log("test");
+          const data = res;
+          console.log(data);
           if (data) {
             if (data.errors) {
-              const { email, password } = data.errors;
-              if (email) generateError(email);
-              else if (password) generateError(password);
+              generateError(data.errors);
             } else {
               navigate("/");
             }

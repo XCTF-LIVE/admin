@@ -17,8 +17,8 @@ export default function Dashboard() {
         navigate("/login");
       } else {
         axios
-          .post("http://api.xctf.live/auth", {}, { withCredentials: true })
-          .then((res) => {
+          .post("https://api.xctf.live/auth", {}, { withCredentials: true })
+          .then((res, err) => {
             const data = res.data;
             if (!data.status) {
               removeCookie("jwt");
@@ -29,13 +29,13 @@ export default function Dashboard() {
           })
           .then(() =>
             axios
-              .get("http://api.xctf.live/race/allraces")
+              .get("https://api.xctf.live/race/allraces")
               .then((res1) => {
                 setRaceData(res1.data);
               })
               .then(
                 axios
-                  .get("http://api.xctf.live/race/submissions")
+                  .get("https://api.xctf.live/race/submissions")
                   .then((res2) => {
                     setSubmissionData(res2.data);
                   })
@@ -53,25 +53,21 @@ export default function Dashboard() {
 
   const removeSubmission = (item) => {
     axios
-      .delete(
-        process.env.REACT_APP_SERVER_API_URL_RACE +
-          "/deletesubmission/" +
-          item._id
-      )
+      .delete("https://api.xctf.live/race/deletesubmission/" + item._id)
       .then(() => {
         window.location.reload();
       });
   };
   const removeRace = (item) => {
     axios
-      .delete("http://api.xctf.live/race/deleterace/" + item._id)
+      .delete("https://api.xctf.live/race/deleterace/" + item._id)
       .then(() => {
         window.location.reload();
       });
   };
   const toggleHighlightRace = (item) => {
     axios
-      .post("http://api.xctf.live/race/toggleracehighlight", {
+      .post("https://api.xctf.live/race/toggleracehighlight", {
         document: item,
       })
       .then(() => window.location.reload());
